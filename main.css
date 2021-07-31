@@ -5,3 +5,13 @@ html {
 h1 {
   text-align: center;
 }
+
+input {
+  align-self: center;
+}
+
+#table {
+  table-layout: auto;
+  width: 100%;
+  padding: 75px;
+}
