@@ -1,3 +1,5 @@
+var totalExp = 0;
+
 function init() {
   var date = document.querySelector('#date');
   var description = document.querySelector('#description');
@@ -35,6 +37,16 @@ function addNewExpense(date, description, amount) {
     <td>${newAmount}</td>
     </tr>`);
 
+    // Calculate total expenses
+    var totalExp = totalExp + amount.value;
+
+    // Write total at bottom of table
+    table.insertAdjacentHTML('beforeend', `<tr>
+      <td></td>
+      <td>Total:</td>
+      <td>${totalExp}</td>
+      </tr>`);
+
   // Clear input fields
   date.value = "";
   description.value = "";
@@ -42,10 +54,6 @@ function addNewExpense(date, description, amount) {
 
   // Put focus back in date fields
   date.focus();
-
-  // Calculate total expenses
-
-  // Write total at bottom of table
 
 };
 
