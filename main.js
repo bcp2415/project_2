@@ -3,15 +3,21 @@ function init() {
   var description = document.querySelector('#description');
   var amount = document.querySelector('#amount');
   var table = document.querySelector('#table');
+
+  // Initialize to put focus in date field:
+  // not working:
   date.focus();
+
+  // Add event listener to 'Add Expense' button
+  document.querySelector('#add').addEventListener('click', function() {
+    addNewExpense(date, description, amount);
+  });
 };
 
-// Add event listener to 'Add Expense' button
-document.querySelector('#add').addEventListener('click', function() {
-  AddnewExpense(date, description, amount);
-});
 
 // function for adding new Expense
-function(date, description, amount) {
-
+function addNewExpense(date, description, amount) {
+  console.log('New expense added.')
 };
+
+init();
