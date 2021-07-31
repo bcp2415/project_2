@@ -1,7 +1,3 @@
-
-document.getElementById('description').focus();
-
-
 function init() {
   var date = document.querySelector('#date');
   var description = document.querySelector('#description');
@@ -9,7 +5,6 @@ function init() {
   var table = document.querySelector('#table');
 
   // Initialize all 3 input fields by clearing them and placing focus in date:
-  // not working:
   date.value = "";
   description.value = "";
   amount.value = "";
@@ -19,12 +14,16 @@ function init() {
   document.querySelector('#add').addEventListener('click', function() {
     addNewExpense(date, description, amount);
   });
+
+  // Create headings and basic structure for table:
+  table.insertAdjacentHTML('afterbegin', '<tr><td>Date</td><td>Description</td><td>Amount</td></tr>');
 };
 
-
-// function for adding new Expense
+// Add new Expense
 function addNewExpense(date, description, amount) {
   console.log('New expense added.')
+
+
 };
 
 init();
