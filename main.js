@@ -21,8 +21,31 @@ function init() {
 
 // Add new Expense
 function addNewExpense(date, description, amount) {
-  console.log('New expense added.')
+  console.log('New expense added.');
 
+  // Read values of 3 inputs:
+  var newDate = date.value;
+  var newDescription = description.value;
+  var newAmount = amount.value;
+
+  // Write to table
+  table.insertAdjacentHTML('beforeend', `<tr>
+    <td>${newDate}</td>
+    <td>${newDescription}</td>
+    <td>${newAmount}</td>
+    </tr>`);
+
+  // Clear input fields
+  date.value = "";
+  description.value = "";
+  amount.value = "";
+
+  // Put focus back in date fields
+  date.focus();
+
+  // Calculate total expenses
+
+  // Write total at bottom of table
 
 };
 
