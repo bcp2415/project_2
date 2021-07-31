@@ -1,11 +1,18 @@
+
+document.getElementById('description').focus();
+
+
 function init() {
   var date = document.querySelector('#date');
   var description = document.querySelector('#description');
   var amount = document.querySelector('#amount');
   var table = document.querySelector('#table');
 
-  // Initialize to put focus in date field:
+  // Initialize all 3 input fields by clearing them and placing focus in date:
   // not working:
+  date.value = "";
+  description.value = "";
+  amount.value = "";
   date.focus();
 
   // Add event listener to 'Add Expense' button
