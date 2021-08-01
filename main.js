@@ -1,5 +1,3 @@
-var totalExp = 0;
-
 function init() {
   var date = document.querySelector('#date');
   var description = document.querySelector('#description');
@@ -9,7 +7,7 @@ function init() {
   // Initialize all 3 input fields by clearing them and placing focus in date:
   date.value = "";
   description.value = "";
-  amount.value = "";
+  amount.value = 0;
   date.focus();
 
   // Add event listener to 'Add Expense' button
@@ -23,12 +21,11 @@ function init() {
 
 // Add new Expense
 function addNewExpense(date, description, amount) {
-  console.log('New expense added.');
 
   // Read values of 3 inputs:
   var newDate = date.value;
   var newDescription = description.value;
-  var newAmount = amount.value;
+  var newAmount = Number(amount.value);
 
   // Write to table
   table.insertAdjacentHTML('beforeend', `<tr>
@@ -38,7 +35,9 @@ function addNewExpense(date, description, amount) {
     </tr>`);
 
     // Calculate total expenses
-    var totalExp = totalExp + amount.value;
+    var totalExp = 0;
+    var totalExp = totalExp + newAmount;
+
 
     // Write total at bottom of table
     table.insertAdjacentHTML('beforeend', `<tr>
