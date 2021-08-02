@@ -1,8 +1,13 @@
+var total = 0;
+var date = document.querySelector('#date');
+var description = document.querySelector('#description');
+var amount = document.querySelector('#amount');
+var table = document.querySelector('#table');
+var wrapper = document.querySelector('#wrapper');
+var totalExp = document.querySelector('#totalExp');
+
 function init() {
-    var date = document.querySelector('#date');
-    var description = document.querySelector('#description');
-    var amount = document.querySelector('#amount');
-    var table = document.querySelector('#table');
+
 
     // Initialize all 3 input fields by clearing them and placing focus in date:
     date.value = "";
@@ -17,6 +22,9 @@ function init() {
 
     // Create headings and basic structure for table:
     table.insertAdjacentHTML('afterbegin', '<tr><td>Date</td><td>Description</td><td>Amount</td></tr>');
+
+    // Print total expenses so far:
+    totalExp.innerHTML = `Total Expenses:  ${total.toFixed(2)}`;
 };
 
 // Add new Expense
@@ -35,16 +43,11 @@ function addNewExpense(date, description, amount) {
     </tr>`);
 
     // Calculate total expenses
-    var totalExp = 0;
-    var totalExp = totalExp + newAmount;
+    total = total + newAmount;
 
 
-    // Write total at bottom of table
-    table.insertAdjacentHTML('beforeend', `<tr>
-      <td></td>
-      <td>Total:</td>
-      <td>${totalExp}</td>
-      </tr>`);
+    // Write total above table:
+    totalExp.innerHTML = `Total Expenses:  ${total.toFixed(2)}`;
 
     // Clear input fields
     date.value = "";
