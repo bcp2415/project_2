@@ -39,12 +39,12 @@ function addNewExpense(date, description, amount) {
     <td>${newDate}</td>
     <td>${newDescription}</td>
     <td>${newAmount}</td>
-    <td><button id = button${buttonCount}
+    <td><button id = "button${buttonCount}"
         >x</button></td>
     </tr>`);
 
     // Add event listener to delete button
-    document.querySelector(`#button${buttonCount}`).addEventListener('click', function(buttonCount) {
+    document.querySelector(`#button${buttonCount}`).addEventListener('click', function() {
         console.log('Delete row function called.');
 
         // Remove tr element:
