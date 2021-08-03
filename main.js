@@ -9,7 +9,6 @@ var buttonCount = 0;
 
 function init() {
 
-
     // Initialize all 3 input fields by clearing them and placing focus in date:
     date.value = "";
     description.value = "";
@@ -20,9 +19,6 @@ function init() {
     document.querySelector('#add').addEventListener('click', function() {
         addNewExpense(date, description, amount);
     });
-
-    // Create headings and basic structure for table:
-    table.insertAdjacentHTML('afterbegin', '<tr><td>Date</td><td>Description</td><td>Amount</td></tr>');
 
     // Print total expenses so far:
     totalExp.innerHTML = `Total Expenses:  ${total.toFixed(2)}`;
@@ -72,6 +68,12 @@ function addNewExpense(date, description, amount) {
 
 function DeleteRow(buttonCount) {
     console.log('Delete row function called.');
+
+    // Remove tr element:
+    document.querySelector(`#button${buttonCount}`).parentElement.parentElement.remove();
+
+    // Recalculate and adjust total expenses:
+
 };
 
 init();
