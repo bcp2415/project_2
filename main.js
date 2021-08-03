@@ -33,22 +33,23 @@ function addNewExpense(date, description, amount) {
 
     // Increment counter to create unique ID for delete button:
     buttonCount++;
+    var newID = `button${buttonCount}`;
 
     // Write to table
     data.insertAdjacentHTML('afterend', `<tr>
     <td>${newDate}</td>
     <td>${newDescription}</td>
     <td>${newAmount}</td>
-    <td><button id = "button${buttonCount}"
+    <td><button id = "${newID}"
         >x</button></td>
     </tr>`);
 
     // Add event listener to delete button
-    document.querySelector(`#button${buttonCount}`).addEventListener('click', function() {
+    document.querySelector(`#${newID}`).addEventListener('click', function() {
         console.log('Delete row function called.');
 
         // Remove tr element:
-        document.querySelector(`#button${buttonCount}`).parentElement.parentElement.remove();
+        document.querySelector(`#${newID}`).closest('tr').remove();
 
         // Recalculate and adjust total expenses:
 
