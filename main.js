@@ -3,6 +3,7 @@ var date = document.querySelector('#date');
 var description = document.querySelector('#description');
 var amount = document.querySelector('#amount');
 var table = document.querySelector('#table');
+var data = document.querySelector('#data');
 var wrapper = document.querySelector('#wrapper');
 var totalExp = document.querySelector('#totalExp');
 var buttonCount = 0;
@@ -21,7 +22,7 @@ function init() {
     });
 
     // Print total expenses so far:
-    totalExp.innerHTML = `Total Expenses:  ${total.toFixed(2)}`;
+    totalExp.innerHTML = `${total.toFixed(2)}`;
 };
 
 // Add new Expense
@@ -36,7 +37,7 @@ function addNewExpense(date, description, amount) {
     buttonCount++;
 
     // Write to table
-    table.insertAdjacentHTML('beforeend', `<tr>
+    data.insertAdjacentHTML('afterend', `<tr>
     <td>${newDate}</td>
     <td>${newDescription}</td>
     <td>${newAmount}</td>
@@ -45,8 +46,14 @@ function addNewExpense(date, description, amount) {
     </tr>`);
 
     // Add event listener to delete button
-    document.querySelector(`#button${buttonCount}`).addEventListener('click', function() {
-        DeleteRow(buttonCount);
+    document.querySelector(`#button${buttonCount}`).addEventListener('click', function(buttonCount) {
+        console.log('Delete row function called.');
+
+        // Remove tr element:
+        document.querySelector(`#button${buttonCount}`).parentElement.parentElement.remove();
+
+        // Recalculate and adjust total expenses:
+
     });
 
     // Calculate total expenses
@@ -63,16 +70,6 @@ function addNewExpense(date, description, amount) {
 
     // Put focus back in date fields
     date.focus();
-
-};
-
-function DeleteRow(buttonCount) {
-    console.log('Delete row function called.');
-
-    // Remove tr element:
-    document.querySelector(`#button${buttonCount}`).parentElement.parentElement.remove();
-
-    // Recalculate and adjust total expenses:
 
 };
 
