@@ -21,8 +21,6 @@ function init() {
         addNewExpense(date, description, amount);
     });
 
-    // Print total expenses so far:
-    totalExp.innerHTML = `${total.toFixed(2)}`;
 };
 
 // Add new Expense
@@ -60,8 +58,8 @@ function addNewExpense(date, description, amount) {
     total = total + newAmount;
 
 
-    // Write total above table:
-    totalExp.innerHTML = `Total Expenses:  ${total.toFixed(2)}`;
+    // Write total:
+    totalExp.innerHTML = `${total.toFixed(2)}`;
 
     // Clear input fields
     date.value = "";
